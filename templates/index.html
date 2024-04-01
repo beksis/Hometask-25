@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <title>Movie Website</title>
+</head>
+<body>
+
+<h1>List of Movies</h1>
+    <ul>
+        {% for e in movies %}
+            <li>
+                <h2>{{ e.title }}</h2>
+                <p><strong>Director:</strong> {{ e.director }}</p>
+                <p><strong>Release Date:</strong> {{ e.release_date }}</p>
+                <p>{{ e.description }}</p>
+                <img src="{{ e.image.url }}" alt="{{ e.title }}">
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
